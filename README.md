@@ -54,5 +54,15 @@ GET /extractTextFromPdf?pdf_url=[pdf_url]
 ### Integration with GPT-4 for Summarization:
 Once you fetch and extract text, use GPT-4 or a custom LLM model to summarize the content.
 
+For a custom GPT use the custom action from the [openapi.json](https://github.com/amc-madalin/arXiv-Reader-API/blob/main/openapi.json) file.
+
+Take into consideration that you need a hosting service like Azure.
+
+Example:
+
+```
+https://arxivreader.azurewebsites.net/
+```
+
 ## License
 [Apache License 2.0](https://github.com/amc-madalin/arXiv-Reader-API/tree/main?tab=Apache-2.0-1-ov-file)

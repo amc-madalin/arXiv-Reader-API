@@ -55,4 +55,4 @@ GET /extractTextFromPdf?pdf_url=[pdf_url]
 Once you fetch and extract text, use GPT-4 or a custom LLM model to summarize the content.
 
 ## License
-[Specify License Here]
+[Apache License 2.0](https://github.com/amc-madalin/arXiv-Reader-API/tree/main?tab=Apache-2.0-1-ov-file)

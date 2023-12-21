@@ -1,8 +1,17 @@
 # arXiv-Reader
 An API for reading text from arXiv PDFs.
 
-## Introduction
-This API is designed for integrating with GPT-4 to summarize academic papers from the arXiv database. It provides endpoints to fetch paper details from arXiv and extract text from PDFs. The extracted text can then be summarized using GPT-4 or a custom GPT model. The API is suitable for hosting on Azure and can be easily integrated into AI-driven applications.
+## API Overview
+
+- **Purpose**: Facilitate the summary and querying of academic papers.
+- **Functionality**:
+  - Fetch paper details from **arXiv**.
+  - Extract text from the papers' PDFs.
+- **Integration with GPT-4**: 
+  - Use the extracted text for summarization or queries via GPT-4 or a custom GPT model.
+- **Hosting**: Designed for **Azure** hosting.
+- **Unique Feature**: Bridges GPT models with multiple APIs, addressing the limitation in custom GPTs for accessing various APIs directly.
+
 
 ## Features
 - **Fetch Papers from ArXiv**: Retrieve paper details such as title, summary, publication date, and PDF URL based on search queries.

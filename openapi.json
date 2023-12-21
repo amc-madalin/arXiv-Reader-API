@@ -1,0 +1,117 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Custom ArXiv API GPT",
+    "description": "An OpenAI GPT that interacts with a custom API for fetching data from ArXiv and extracting text from PDFs.",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://arxivreader.azurewebsites.net/"
+    }
+  ],
+  "paths": {
+    "/fetchFromArxiv": {
+      "get": {
+        "operationId": "fetchFromArXiv",
+        "summary": "Fetch entries from ArXiv",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Query string to search in ArXiv database"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArXivEntries"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/extractTextFromPdf": {
+      "get": {
+        "operationId": "extractTextFromPdf",
+        "summary": "Extract text from a PDF",
+        "parameters": [
+          {
+            "name": "pdf_url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "URL of the PDF to extract text from"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtractedText"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Missing or invalid parameters"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArXivEntries": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "pdf_url": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ExtractedText": {
+        "type": "object",
+        "properties": {
+          "extracted_text": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

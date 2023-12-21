@@ -1,27 +1,58 @@
 # arXiv-Reader
 An API for reading text from arXiv PDFs.
 
-## Overview
-This API is designed to fetch scientific papers from the ArXiv database and extract text from their PDFs. It's particularly useful in combination with GPT-4's summarization capabilities, allowing for quick and efficient summaries of academic papers. The API can be hosted on Azure and integrated with custom GPT models.
+## Introduction
+This API is designed for integrating with GPT-4 to summarize academic papers from the arXiv database. It provides endpoints to fetch paper details from arXiv and extract text from PDFs. The extracted text can then be summarized using GPT-4 or a custom GPT model. The API is suitable for hosting on Azure and can be easily integrated into AI-driven applications.
 
 ## Features
-Fetch Papers from ArXiv: Retrieve a list of papers based on a user-defined query. Metadata including the title, summary, publication date, and PDF URL is returned.
-Extract Text from PDF: Download a paper in PDF format from a provided URL and extract its text.
-## How to Use
+- **Fetch Papers from ArXiv**: Retrieve paper details such as title, summary, publication date, and PDF URL based on search queries.
+- **Extract Text from PDF**: Download and extract text from PDFs hosted on arXiv.
 
-### Setup: 
+## Prerequisites
+- Python 3.x
+- Flask
+- Requests
+- PyPDF2
+- An Azure account for hosting (optional)
 
-Ensure you have Python and necessary packages installed. Use requirements.txt to install dependencies.
+## Installation and Setup
 
-### Running the API:
+**Clone the Repository**:
+   ```bash
+   git clone [repository_url]
+   ```
 
-Host the API on an Azure server or locally.
+### Install Dependencies:
+Navigate to the project directory and install dependencies using:
 
-Start the API using python app.py.
+```bash
+pip install -r requirements.txt
+```
 
-### Endpoints:
-- /: A simple welcome message.
+### Environment Variables:
+Set `ARXIV_API_URL` in your environment or directly in the code.
 
-- /fetchFromArxiv: Fetch papers from ArXiv. Use query parameters query for the search term and max_results for the number of results.
+### Running the API Locally:
+Run the Flask application:
 
-- /extractTextFromPdf: Extract text from a PDF. Use the pdf_url query parameter to specify the PDF's URL.
+## Using the API
+
+### Fetch Papers from ArXiv:
+Send a GET request to `/fetchFromArxiv` with parameters `query` (search term) and `max_results` (optional, default 5).
+
+```http
+GET /fetchFromArxiv?query=[search_term]&max_results=[number]
+```
+
+### Extract Text from PDF:
+Send a GET request to `/extractTextFromPdf` with the parameter `pdf_url`.
+
+```http
+GET /extractTextFromPdf?pdf_url=[pdf_url]
+```
+
+### Integration with GPT-4 for Summarization:
+Once you fetch and extract text, use GPT-4 or a custom LLM model to summarize the content.
+
+## License
+[Specify License Here]

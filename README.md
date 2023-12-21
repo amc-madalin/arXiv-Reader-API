@@ -19,7 +19,7 @@ This API is designed for integrating with GPT-4 to summarize academic papers fro
 
 **Clone the Repository**:
    ```bash
-   git clone [repository_url]
+   git clone https://github.com/amc-madalin/arXiv-Reader-API.git
    ```
 
 ### Install Dependencies:
